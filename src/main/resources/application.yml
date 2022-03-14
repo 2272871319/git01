@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: micr-task  #\u5728spring\u4E2D\u88AB\u7528\u6765\u6CE8\u518C\u7684\u670D\u52A1\u540D\u79F0
+
+
+dubbo:
+  registry:
+    address: zookeeper://localhost:2181
+  scan:
+    base-packages: com.bjpowernode.task
+  consumer:
+    check: false   #\u5982\u679C\u4F60\u7684Spring\u5BB9\u5668\u662F\u61D2\u52A0\u8F7D\u7684\uFF0C\u6216\u8005\u901A\u8FC7API\u7F16\u7A0B\u5EF6\u8FDF\u5F15\u7528\u670D\u52A1\uFF0C\u8BF7\u5173\u95EDcheck\uFF0C\u5426\u5219\u670D\u52A1\u4E34\u65F6\u4E0D\u53EF\u7528\u65F6\uFF0C\u4F1A\u629B\u51FA\u5F02\u5E38\uFF0C\u62FF\u5230null\u5F15\u7528\uFF0C\u5982\u679Ccheck=false\uFF0C\u603B\u662F\u4F1A\u8FD4\u56DE\u5F15\u7528\uFF0C\u5F53\u670D\u52A1\u6062\u590D\u65F6\uFF0C\u80FD\u81EA\u52A8\u8FDE\u4E0A\u3002
+    retries: 0  # \u8D85\u65F6\u91CD\u8BD5\u6B21\u6570
+    timeout: 30000
+
+
+#  每20分钟调用一次查询接口   查询redis中有无未处理的订单
+KqQuery:
+  url: http://localhost:9000/pay/kq/query
