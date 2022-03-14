@@ -50,7 +50,7 @@ public class TaskManager {
         incomeService.generateIncomeBack();
     }
 
-    //每20分钟调用一次查询接口   查询redis中有无未处理的订单    url: http://localhost:9000/pay/kq/query
+    //每20分钟调用一次查询接口   查询redis中有无未处理的订单    url: htt  p://localhost:9000/pay/kq/query
     @Value("${KqQuery.url}")
     String url;
     @Scheduled(cron = "0 0/20 * * * ?")
